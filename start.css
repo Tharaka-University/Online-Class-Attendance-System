@@ -1,0 +1,29 @@
+h1{text-align: center;}
+ body {
+    color: blue;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
+            background-color:lightgreen ;
+        }
+
+.container{
+    display: flex;
+    margin: 20px auto;
+            max-width: 900px; /* Set the max width of the content */
+            box-shadow: 0 0 50px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+             background-color: ;
+}
+
+.left img{
+    border-radius: 50%;
+    align-content: left;
+}
+.form{
+    text-align: center;
+}
+.submit button{
+    background-color: lightgreen;
+}
