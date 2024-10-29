@@ -1,121 +1,64 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Online Class Attedance system</title>
-	<link rel="stylesheet" type="text/css" href="start.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Check-In/Check-Out Form</title>
+    <link rel="stylesheet" href="start.css">
+    <script src="p2.js"></script>
 </head>
 <body>
-	
-<div class="content">
+    <div class="content">
 <h1>Tharaka University Class Attedance System</h1>
-<p>Students in the university are required to mark their attedance online</p>
+<p><i>Students in the university are required to mark their attedance online</i></p>
 
-<div class="container">
-  <div class="left">
-    <img src="FB_IMG_1647166646368.jpg" alt="the school only representable building" style="width:300px; height: 300px;">
-<p><i> Capture Live Location Image<p>
+    <div class="form-container">
+        <form name="input" method="post" action="attendance.php">
 
-  </div>
-  <div class="left">
-    <form action="" method="">
-      <table border="1">
-        <tr>
-          <td>
-         <labelfor="email">Choose Email</label>
-         </td>
-<td>
-  <input type="email" id="email" name="email" required>
-</td>
-        
-           </tr>
-       
-        <!-- Password Input -->
-        <tr>
-        <td>
-          <label for="password">Enter Password</label>
-        </td>
-        <td>
-        <input type="password" id="password" name="password" required>
-        </td>
-        </tr>
-        <tr>
-       <td>
-        <label for="attendanceType">Attendance Type</label>
-        </td>
-<td>
-        <select id="attendanceType" name="attendanceType">
-            <option value="IN">IN</option>
-            <option value="OUT">OUT</option>
-        </select><br><br>
-        </tr>
-        <tr>
-        <td>
-        <label for="imageUpload">Upload Your Picture</label>
-        </td>
-        <td>
-        <input type="file" id="imageUpload" name="imageUpload" accept="image/*" required>
-        </td>
-        </tr>
-        <tr>
-        <td>
-        <label for="firstName">First Name</label>
-        </td>
-        <td>
-        <input type="text" id="firstName" name="firstName" required></td>
-</tr>
-        <!-- Second Name -->
-       <tr>
-        <td>
-        <label for="secondName">Second Name</label>
-        </td>
-        <td>
-        <input type="text" id="secondName" name="secondName" required>
-</td>
-</tr>
-        <!-- Unit Code -->
-        <tr>
-          <td>
-        <label for="unitCode">Unit Code</label></td>
-       <td> <input type="text" id="unitCode" name="unitCode" required></td>
-       </tr>
-       <tr>
-        <td>
+            <label for="firstName">Name</label>
+            <div class="name-field">
+                <input type="text" id="firstName" name="firstName" placeholder="First Name">
+                <input type="text" id="lastName" name="lastName" placeholder="Last Name">
+            </div>
 
-        <!-- Unit Title -->
-        <label for="unitTitle">Unit Title</label></td>
-        <td>
-        <input type="text" id="unitTitle" name="unitTitle" required>
-</td>
-</tr>
-        <!-- Registration Number -->
-        <tr>
-       <td> <label for="registrationNumber">Registration Number</label></td>
-        <td><input type="number" id="registrationNumber" name="registrationNumber" required></td>
-</tr>
-<tr>
-        <td>
-        <label for="date">Date</label></td>
-        <td><input type="date" id="date" name="date" required></td>
-        </tr>
+            <div class="select-option">
+                <label>Select One:</label>
+                <input type="radio" id="checkIn" name="check" value="checkIn">
+                <label for="checkIn">Check-In</label>
+                <input type="radio" id="checkOut" name="check" value="checkOut">
+                <label for="checkOut">Check-Out</label>
+            </div>
 
-        
-       <td> <label for="time">Time (Hour and Minutes)</label></td>
-        <td><input type="time" id="time" name="time" required></td>
-        </tr>
-        
-        <td colspan="2" align="center" text><button  type="submit">Submit</button></td>
-        </tr>
-        </table>
-       </form>
-        
-  </div>
-  
+<div class="content">
+    <label for="registrationNumber">Registration Number:</label>
+        <input type="text/numbers" id="registrationNumber" name="registrationNumber" required><br><br>
 </div>
 
+<div class="text">
+    <label for="unitCode">Unit Code</label>
         
+       <input type="text" id="unitCode" name="unitCode" required><br><br>
+        <label for="unitTitle">Unit Title</label>
+        <input type="text" id="unitTitle" name="unitTitle" required><br><br>
+    
+</div>
+<div class="date-field">
+     <label for="date">Date</label>
+        <input type="date" id="date" name="date" required><br><br>
+        <label for="time">Time (Hour and Minutes)</label>
+      <input type="time" id="time" name="time" required><br><br>
+    
+</div>
+            <div class="signature-section">
+                <label for="signature">Signature <span class="required">*</span></label>
+                <canvas id="signature" class="signature-canvas"></canvas>
+                <button type="button" id="clear-signature">Clear</button>
+            </div>
 
+            <button type="submit" class="submit-button">Submit</button>
+        </form>
+    </div>
 
+    <script src="script.js"></script>
 </body>
 </html>
