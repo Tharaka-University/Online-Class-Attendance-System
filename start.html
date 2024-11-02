@@ -5,15 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Check-In/Check-Out Form</title>
     <link rel="stylesheet" href="start.css">
-    <script src="p2.js"></script>
+    <script type="text/javascript"></script>
 </head>
 <body>
+
+
+
+<h1>Tharaka University <br>Online class attendance</h1>
     <div class="content">
-<h1>Tharaka University Class Attedance System</h1>
-<p><i>Students in the university are required to mark their attedance online</i></p>
+   
+
 
     <div class="form-container">
-        <form name="input" method="post" action="attendance.php">
+        <p style="color: orangered;"><i>Students in the university are required to mark their attedance online</i></p>
+
+
+        <form action="attedance.php"method="post" >
 
             <label for="firstName">Name</label>
             <div class="name-field">
@@ -22,7 +29,7 @@
             </div>
 
             <div class="select-option">
-                <label>Select One:</label>
+                <label>Select One:</label><br>
                 <input type="radio" id="checkIn" name="check" value="checkIn">
                 <label for="checkIn">Check-In</label>
                 <input type="radio" id="checkOut" name="check" value="checkOut">
@@ -35,33 +42,99 @@
 </div>
 
 <div class="text">
-    <label for="unitCode">Unit Code</label>
-        
-       <input type="text" id="unitCode" name="unitCode" required><br><br>
-        <label for="unitTitle">Unit Title</label>
-        <input type="text" id="unitTitle" name="unitTitle" required><br><br>
-    
+   <label for="unitCode">Unit Code</label>
+<select id="unitCode" name="unitCode" required>
+    <option value="" disabled selected>Select Unit Code</option>
+    <option value="CSC101">CSC101</option>
+    <option value="MTH102">MTH102</option>
+    <option value="PHY103">PHY103</option>
+    <option value="ENG104">ENG104</option>
+    <!-- Add more unit codes as needed -->
+</select>
+<br><br>
+
+<label for="unitTitle">Unit Title</label>
+<select id="unitTitle" name="unitTitle" required>
+    <option value="" disabled selected>Select Unit Title</option>
+    <option value="Introduction to Computer Science">Introduction to Computer Science</option>
+    <option value="Calculus I">Calculus I</option>
+    <option value="General Physics">General Physics</option>
+    <option value="English Composition">English Composition</option>
+    <!-- Add more unit titles as needed -->
+</select>
+<br><br>
 </div>
 <div class="date-field">
-     <label for="date">Date</label>
-        <input type="date" id="date" name="date" required><br><br>
-        <label for="time">Time (Hour and Minutes)</label>
-      <input type="time" id="time" name="time" required><br><br>
+    <label for="date">Date</label>
+    <input type="date" id="date" name="date" required><br><br>
     
+    <label for="time">Time (Hour and Minutes)</label>
+    <input type="time" id="time" name="time" required><br><br>
 </div>
-            <div class="signature-section">
-                <label for="signature">Signature <span class="required">*</span></label>
-                <canvas id="signature" class="signature-canvas"></canvas>
-                <button type="button" id="clear-signature">Clear</button>
-            </div>
 
+
+
+
+<script>
+    // Function to set the current date and time
+    function setDateTime() {
+        // Get the current date and time
+        const now = new Date();
+        
+        // Format the date to YYYY-MM-DD
+        const date = now.toISOString().slice(0, 10); 
+        document.getElementById("date").value = date;
+
+        // Format the time to HH:MM in the user's timezone
+        const hours = String(now.getHours()).padStart(2, '0');
+        const minutes = String(now.getMinutes()).padStart(2, '0');
+        const time = `${hours}:${minutes}`;
+        document.getElementById("time").value = time;
+    }
+
+    // Set date and time when the page loads
+    window.onload = setDateTime;
+</script>
+
+            
             <button type="submit" class="submit-button">Submit</button>
         </form>
     </div>
+
+<div class="slideshow-container">
+        <div class="mySlides fade">
+            <img src="informatics-workshop-at-university-EWCAE0.jpg" alt="University Image 1">
+        </div>
+
+        <div class="mySlides fade">
+            <img src="FB_IMG_1647166646368.jpg" alt="University Image 2">
+        </div>
+
+        <div class="mySlides fade">
+            <img src="gettyimages-141090015-1024x1024.jpg" alt="University Image 3">
+        </div>
+    </div>
 </div>
 
-<img src="your-image-url.jpg" alt="Descriptive Alt Text" class="right-image"> <!-- Replace with your image URL -->
-</div>
+<script>
+    let slideIndex = 0;
+    showSlides();
+
+    function showSlides() {
+        let slides = document.getElementsByClassName("mySlides");
+        for (let i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        slideIndex++;
+        if (slideIndex > slides.length) { slideIndex = 1 }
+        slides[slideIndex - 1].style.display = "block";
+        setTimeout(showSlides, 3000); // Change image every 3 seconds
+    }
+</script>
+
+            
+            
+       
     <script src="script.js"></script>
 </body>
 </html>

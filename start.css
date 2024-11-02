@@ -6,15 +6,25 @@
 
 body {
     font-family: Arial, sans-serif;
-    display: flex;
-    justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: lightblue;
+    background-color: #16F547;
+}
+
+h1{
+    text-align: center;
+    font-size: 70px ;
+}
+
+
+.content{
+    display: flex;
+      justify-content: center;
+    
 }
 
 .form-container {
-    background-color: #fff;
+    background-color: #0ACABD;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
@@ -23,10 +33,11 @@ body {
 form {
     display: flex;
     flex-direction: column;
+    background-color: #95F516;
 }
 
 label {
-    margin-bottom: 8px;
+    margin-bottom: 15px;
     font-weight: bold;
 }
 
@@ -79,3 +90,40 @@ button:disabled {
 .submit-button {
     width: 100%;
 }
+.flex-container {
+    display: flex;
+    align-items: flex-start; /* Align items at the top */
+      justify-content: space-between; /* Space between the form and image */
+    width: 80%; /* Adjust as needed */
+}
+.right-image {
+    width: 1000px; /* Adjust image size as needed */
+    height:auto;%; /* Maintain aspect ratio */
+    margin-left: 20px; /* Space between the form and the image */
+}
+
+.slideshow-container {
+            max-width: 900px;
+            position: relative;
+            margin: auto;
+        }
+
+        /* Hide the images by default */
+        .mySlides {
+            display: none;
+        }
+
+        /* Image styles */
+        .slideshow-container img {
+            width: 100%;
+            border-radius: 15px;
+        }
+
+        /* Fading animation */
+        .fade {
+            animation: fadeEffect 1.5s;
+        }
+
+        @keyframes fadeEffect {
+            from { opacity: 0.4; } 
+            to { opacity: 1; }
