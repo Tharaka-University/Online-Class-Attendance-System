@@ -7,28 +7,39 @@
 
 body {
     font-family: Arial, sans-serif;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     background-color: #16F547;
+    margin: 0;
 }
 
 /* Header styling */
 header {
     background-color: #1a3e66;
     color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center the title container */
     padding: 20px;
-    text-align: center;
+    position: relative; /* Allows positioning of the logo */
     width: 100%;
 }
 
-header h1 {
-    font-size: 50px;
+.logo {
+    width: 100px;
+    height: auto;
+    position: absolute;
+    left: 20px; /* Position the logo on the far left */
+}
+
+.title-container {
+    text-align: center;
+}
+
+.title-container h1 {
+    font-size: 35px;
     margin: 0;
 }
 
-header p {
+.title-container p {
     font-size: 16px;
     font-style: italic;
     margin-top: 5px;
@@ -37,26 +48,13 @@ header p {
 /* Main content container */
 .content {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: flex-start;
-    width: 80%;
-    margin-top: 20px;
+    width: 90%;
+    margin: 20px auto;
 }
 
-/* Image container on the left */
-.image-container {
-    flex: 1;
-    padding-right: 20px;
-}
-
-.image-container img {
-    width: 100%;
-    max-width: 500px;
-    height: auto;
-    border-radius: 10px;
-}
-
-/* Form container on the right */
+/* Form container on the left */
 .form-container {
     flex: 1;
     background-color: #0ACABD;
@@ -87,15 +85,6 @@ header p {
     margin-bottom: 20px;
 }
 
-.select-option input {
-    margin-right: 8px;
-}
-
-label {
-    font-weight: bold;
-    margin-bottom: 5px;
-}
-
 input[type="text"],
 input[type="date"],
 input[type="time"],
@@ -118,15 +107,11 @@ button {
     width: 100%;
 }
 
-button:disabled {
-    background-color: #ccc;
-}
-
-/* Slideshow container */
+/* Slideshow container on the right */
 .slideshow-container {
-    max-width: 900px;
-    position: relative;
-    margin: auto;
+    flex: 1;
+    max-width: 600px;
+    margin-left: 20px;
 }
 
 .mySlides {

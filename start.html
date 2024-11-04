@@ -5,32 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Check-In/Check-Out Form</title>
     <link rel="stylesheet" href="start.css">
-    <script type="text/javascript"></script>
 </head>
 <body>
 
 <header>
-        <div class="header-content">
-            <img src="logo.png" alt="Tharaka University Logo" class="logo">
-            <div class="title-container">
-                <h1>Tharaka University<br> online class Attedance system</h1>
-                <p>Transforming Higher Education... Enhancing Lives</p>
-            </div>
+    <div class="header-content">
+        <img src="logo.png" alt="Tharaka University Logo" class="logo">
+        <div class="title-container">
+            <h1>Tharaka University<br>Online Class Attendance System</h1>
+            <p>Transforming Higher Education... Enhancing Lives</p>
         </div>
-    </header>
+    </div>
+</header>
 
+<div class="content">
     <div class="form-container">
-        <p style="color: darkorange;"><i>Students in the university are required to mark their attedance online</i></p>
-
-
-        <form action="attedance.php"method="post" >
-
+        <p style="color: darkorange;"><i>Students in the university are required to mark their attendance online</i></p>
+        <form action="attendance.php" method="post">
             <label for="firstName">Name</label>
             <div class="name-field">
                 <input type="text" id="firstName" name="firstName" placeholder="First Name">
                 <input type="text" id="lastName" name="lastName" placeholder="Last Name">
             </div>
-
             <div class="select-option">
                 <label>Select One:</label><br>
                 <input type="radio" id="checkIn" name="check" value="checkIn">
@@ -38,81 +34,39 @@
                 <input type="radio" id="checkOut" name="check" value="checkOut">
                 <label for="checkOut">Check-Out</label>
             </div>
-
-<div class="content">
-    <label for="registrationNumber">Registration Number:</label>
-        <input type="text/numbers" id="registrationNumber" name="registrationNumber" required><br><br>
-</div>
-
-<div class="text">
-   <label for="unitCode">Unit Code</label>
-<select id="unitCode" name="unitCode" required>
-    <option value="" disabled selected>Select Unit Code</option>
-    <option value="CSC101">CSC101</option>
-    <option value="MTH102">MTH102</option>
-    <option value="PHY103">PHY103</option>
-    <option value="ENG104">ENG104</option>
-    <!-- Add more unit codes as needed -->
-</select>
-<br><br>
-
-<label for="unitTitle">Unit Title</label>
-<select id="unitTitle" name="unitTitle" required>
-    <option value="" disabled selected>Select Unit Title</option>
-    <option value="Introduction to Computer Science">Introduction to Computer Science</option>
-    <option value="Calculus I">Calculus I</option>
-    <option value="General Physics">General Physics</option>
-    <option value="English Composition">English Composition</option>
-    <!-- Add more unit titles as needed -->
-</select>
-<br><br>
-</div>
-<div class="date-field">
-    <label for="date">Date</label>
-    <input type="date" id="date" name="date" required><br><br>
-    
-    <label for="time">Time (Hour and Minutes)</label>
-    <input type="time" id="time" name="time" required><br><br>
-</div>
-
-
-
-
-<script>
-    // Function to set the current date and time
-    function setDateTime() {
-        // Get the current date and time
-        const now = new Date();
-        
-        // Format the date to YYYY-MM-DD
-        const date = now.toISOString().slice(0, 10); 
-        document.getElementById("date").value = date;
-
-        // Format the time to HH:MM in the user's timezone
-        const hours = String(now.getHours()).padStart(2, '0');
-        const minutes = String(now.getMinutes()).padStart(2, '0');
-        const time = `${hours}:${minutes}`;
-        document.getElementById("time").value = time;
-    }
-
-    // Set date and time when the page loads
-    window.onload = setDateTime;
-</script>
-
-            
+            <label for="registrationNumber">Registration Number:</label>
+            <input type="text" id="registrationNumber" name="registrationNumber" required><br><br>
+            <label for="unitCode">Unit Code</label>
+            <select id="unitCode" name="unitCode" required>
+                <option value="" disabled selected>Select Unit Code</option>
+                <option value="CSC101">CSC101</option>
+                <option value="MTH102">MTH102</option>
+                <option value="PHY103">PHY103</option>
+                <option value="ENG104">ENG104</option>
+            </select><br><br>
+            <label for="unitTitle">Unit Title</label>
+            <select id="unitTitle" name="unitTitle" required>
+                <option value="" disabled selected>Select Unit Title</option>
+                <option value="Introduction to Computer Science">Introduction to Computer Science</option>
+                <option value="Calculus I">Calculus I</option>
+                <option value="General Physics">General Physics</option>
+                <option value="English Composition">English Composition</option>
+            </select><br><br>
+            <label for="date">Date</label>
+            <input type="date" id="date" name="date" required><br><br>
+            <label for="time">Time (Hour and Minutes)</label>
+            <input type="time" id="time" name="time" required><br><br>
             <button type="submit" class="submit-button">Submit</button>
         </form>
     </div>
 
-<div class="slideshow-container">
+    <div class="slideshow-container">
         <div class="mySlides fade">
             <img src="informatics-workshop-at-university-EWCAE0.jpg" alt="University Image 1">
         </div>
-
         <div class="mySlides fade">
             <img src="FB_IMG_1647166646368.jpg" alt="University Image 2">
         </div>
-
         <div class="mySlides fade">
             <img src="gettyimages-141090015-1024x1024.jpg" alt="University Image 3">
         </div>
@@ -122,7 +76,6 @@
 <script>
     let slideIndex = 0;
     showSlides();
-
     function showSlides() {
         let slides = document.getElementsByClassName("mySlides");
         for (let i = 0; i < slides.length; i++) {
@@ -135,9 +88,5 @@
     }
 </script>
 
-            
-            
-       
-    <script src="script.js"></script>
 </body>
 </html>
