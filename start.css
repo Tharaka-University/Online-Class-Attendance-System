@@ -1,3 +1,4 @@
+/* Reset and general styling */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -6,39 +7,67 @@
 
 body {
     font-family: Arial, sans-serif;
-    align-items: center;
     height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     background-color: #16F547;
 }
 
-h1{
+/* Header styling */
+header {
+    background-color: #1a3e66;
+    color: #fff;
+    padding: 20px;
     text-align: center;
-    font-size: 70px ;
+    width: 100%;
 }
 
+header h1 {
+    font-size: 50px;
+    margin: 0;
+}
 
-.content{
+header p {
+    font-size: 16px;
+    font-style: italic;
+    margin-top: 5px;
+}
+
+/* Main content container */
+.content {
     display: flex;
-      justify-content: center;
-    
+    justify-content: center;
+    align-items: flex-start;
+    width: 80%;
+    margin-top: 20px;
 }
 
+/* Image container on the left */
+.image-container {
+    flex: 1;
+    padding-right: 20px;
+}
+
+.image-container img {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    border-radius: 10px;
+}
+
+/* Form container on the right */
 .form-container {
+    flex: 1;
     background-color: #0ACABD;
     padding: 20px;
-    border-radius: 8px;
+    border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-form {
-    display: flex;
-    flex-direction: column;
-    background-color: #95F516;
-}
-
-label {
-    margin-bottom: 15px;
-    font-weight: bold;
+.form-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
 }
 
 .name-field {
@@ -62,15 +91,20 @@ label {
     margin-right: 8px;
 }
 
-.signature-section {
-    margin-bottom: 20px;
+label {
+    font-weight: bold;
+    margin-bottom: 5px;
 }
 
-.signature-canvas {
-    border: 1px solid #ccc;
+input[type="text"],
+input[type="date"],
+input[type="time"],
+select {
     width: 100%;
-    height: 150px;
-    margin-bottom: 10px;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
 }
 
 button {
@@ -81,49 +115,34 @@ button {
     color: #fff;
     font-size: 16px;
     cursor: pointer;
+    width: 100%;
 }
 
 button:disabled {
     background-color: #ccc;
 }
 
-.submit-button {
-    width: 100%;
-}
-.flex-container {
-    display: flex;
-    align-items: flex-start; /* Align items at the top */
-      justify-content: space-between; /* Space between the form and image */
-    width: 80%; /* Adjust as needed */
-}
-.right-image {
-    width: 1000px; /* Adjust image size as needed */
-    height:auto;%; /* Maintain aspect ratio */
-    margin-left: 20px; /* Space between the form and the image */
-}
-
+/* Slideshow container */
 .slideshow-container {
-            max-width: 900px;
-            position: relative;
-            margin: auto;
-        }
+    max-width: 900px;
+    position: relative;
+    margin: auto;
+}
 
-        /* Hide the images by default */
-        .mySlides {
-            display: none;
-        }
+.mySlides {
+    display: none;
+}
 
-        /* Image styles */
-        .slideshow-container img {
-            width: 100%;
-            border-radius: 15px;
-        }
+.slideshow-container img {
+    width: 100%;
+    border-radius: 15px;
+}
 
-        /* Fading animation */
-        .fade {
-            animation: fadeEffect 1.5s;
-        }
+.fade {
+    animation: fadeEffect 1.5s;
+}
 
-        @keyframes fadeEffect {
-            from { opacity: 0.4; } 
-            to { opacity: 1; }
+@keyframes fadeEffect {
+    from { opacity: 0.4; }
+    to { opacity: 1; }
+}
