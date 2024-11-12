@@ -1,36 +1,51 @@
 <?php
-// Database connection settings
+// Database connection
 $servername = "localhost";
-$username = "root";
-$password = ""; // Default password for XAMPP
-$dbname = "attendance";
+$username = "root";  // Database username
+$password = "";  // Database password
+$dbname = "attendance";  // Database name
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
 
 // Check connection
 if ($conn->connect_error) {
-    die('Connection failed: ' . $conn->connect_error);
+    die("Connection failed: " . $conn->connect_error);
 }
 
-// New user credentials
-$new_username = "jack";
-$new_password = "12345"; // Plain-text password for testing
-$new_email = "edv2.09813.23@student.tharaka.ac.ke";
+// Check if the form is submitted
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $username = $_POST['username'];
+    $email = $_POST['email'];
+    $password = $_POST['password'];
 
-// Hash the password
-$hashed_password = password_hash($new_password, PASSWORD_DEFAULT);
+    // Hash the password
+    $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
-// Prepare SQL statement to insert the new user
-$stmt = $conn->prepare("INSERT INTO users (username, password) VALUES (?, ?)");
-$stmt->bind_param("ss", $new_username, $hashed_password);
+    // Check if the username or email already exists
+    $sql = "SELECT * FROM users WHERE username = ? OR email = ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("ss", $username, $email);
+    $stmt->execute();
+    $result = $stmt->get_result();
 
-if ($stmt->execute()) {
-    echo "New user added successfully!";
-} else {
-    echo "Error: " . $stmt->error;
+    if ($result->num_rows > 0) {
+        echo "Username or Email already exists.";
+    } else {
+        // Insert the new user into the database
+        $sql = "INSERT INTO users (username, email, password) VALUES (?, ?, ?)";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param("sss", $username, $email, $hashed_password);
+
+        if ($stmt->execute()) {
+            echo "Registration successful! You can now <a href='login.html'>log in</a>.";
+        } else {
+            echo "Error: " . $stmt->error;
+        }
+    }
+
+    $stmt->close();
 }
 
-$stmt->close();
 $conn->close();
 ?>

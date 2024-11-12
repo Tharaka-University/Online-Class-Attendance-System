@@ -20,8 +20,8 @@
 
 <div class="content">
     <div class="form-container">
-        <p style="color: darkorange;"><i>Students in the university are required to mark their attendance online</i></p>
-        <form action="attendance.php" method="post">
+        <p style="color: #091EDB; align-items: center;">Students in the university are required to mark their attendance online</p>
+        <form action="attedance.php" method="post">
             <label for="firstName">Name</label>
             <div class="name-field">
                 <input type="text" id="firstName" name="firstName" placeholder="First Name">
@@ -43,6 +43,10 @@
                 <option value="MTH102">MTH102</option>
                 <option value="PHY103">PHY103</option>
                 <option value="ENG104">ENG104</option>
+                <option value="DIIT 0228">DIIT 0228</option>
+                <option value="DIIT 0246">DIIT 0246</option>
+                <option value="DIIT 0283">DIIT 0283</option>
+                <option value="COSC 0261">COSC 0261</option>
             </select><br><br>
             <label for="unitTitle">Unit Title</label>
             <select id="unitTitle" name="unitTitle" required>
@@ -51,12 +55,40 @@
                 <option value="Calculus I">Calculus I</option>
                 <option value="General Physics">General Physics</option>
                 <option value="English Composition">English Composition</option>
+                <option value="Computerized Accounting">Computerized Accounting</option>
+                <option value="Web Development">Web Development</option>
+                <option value="ICT Project II">ICT Project II</option>
+                <option value="E-Commerce">E-Commerce</option>
             </select><br><br>
             <label for="date">Date</label>
-            <input type="date" id="date" name="date" required><br><br>
-            <label for="time">Time (Hour and Minutes)</label>
-            <input type="time" id="time" name="time" required><br><br>
-            <button type="submit" class="submit-button">Submit</button>
+<input type="date" id="date" name="date" required><br><br>
+
+<label for="time">Time (Hour and Minutes)</label>
+<input type="time" id="time" name="time" required><br><br>
+
+<button type="submit" class="submit-button">Submit</button>
+
+<script>
+// Set date and time fields to current date and time
+window.addEventListener('load', () => {
+    const dateField = document.getElementById('date');
+    const timeField = document.getElementById('time');
+    
+    // Get current date and time
+    const now = new Date();
+    
+    // Format date as YYYY-MM-DD
+    const year = now.getFullYear();
+    const month = String(now.getMonth() + 1).padStart(2, '0');
+    const day = String(now.getDate()).padStart(2, '0');
+    dateField.value = `${year}-${month}-${day}`;
+    
+    // Format time as HH:MM
+    const hours = String(now.getHours()).padStart(2, '0');
+    const minutes = String(now.getMinutes()).padStart(2, '0');
+    timeField.value = `${hours}:${minutes}`;
+});
+</script>
         </form>
     </div>
 

@@ -7,7 +7,7 @@
 
 body {
     font-family: Arial, sans-serif;
-    background-color: #16F547;
+    background-color: #DB09CA;
     margin: 0;
 }
 
@@ -110,7 +110,7 @@ button {
 /* Slideshow container on the right */
 .slideshow-container {
     flex: 1;
-    max-width: 600px;
+    max-width: 2200px;
     margin-left: 20px;
 }
 
