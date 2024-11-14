@@ -1,0 +1,109 @@
+/* Body styling with light blue background */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background-color: #b3d9ff; /* Light blue background */
+  color: #333;
+}
+
+header {
+  padding: 20px;
+  background-color: rgba(0, 102, 204, 0.8);
+  color: white;
+  border-radius: 8px;
+  width: 80%;
+  margin-top: 20px;
+}
+
+h1 {
+  font-size: 2.5em;
+  margin: 0;
+}
+
+main {
+  padding: 20px;
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.content-container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+/* Left Section (Buttons and Features) */
+.left-section {
+  flex: 1;
+  max-width: 40%;
+  margin-right: 20px;
+}
+
+.cta-buttons {
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  margin: 5px 0;
+  text-decoration: none;
+  border-radius: 5px;
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+  transition: background-color 0.3s;
+}
+
+.button:hover {
+  background-color: #45a049;
+}
+
+#features {
+  text-align: left;
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 15px;
+  border-radius: 8px;
+}
+
+/* Right Section (Slideshow) */
+.slideshow-container {
+  flex: 1;
+  max-width: 50%;
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.slide {
+  display: none;
+}
+
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@keyframes fade {
+  from { opacity: 0.4; }
+  to { opacity: 1; }
+}
+
+/* Footer */
+footer {
+  background-color: rgba(0, 102, 204, 0.8);
+  color: white;
+  padding: 10px;
+  width: 100%;
+  text-align: center;
+  position: fixed;
+  bottom: 0;
+}

@@ -21,21 +21,31 @@
 <div class="content">
     <div class="form-container">
         <p style="color: #091EDB; align-items: center;">Students in the university are required to mark their attendance online</p>
-        <form action="attedance.php" method="post">
+        
+        <!-- Question and Answer Section -->
+        <div class="question-container">
+            <label for="securityQuestion">What is the answer to today's class question?</label>
+            <input type="text" id="securityQuestion" name="securityQuestion" placeholder="Type your answer here" required>
+        </div>
+        
+        <form id="attendanceForm" action="attedance.php" method="post">
             <label for="firstName">Name</label>
             <div class="name-field">
-                <input type="text" id="firstName" name="firstName" placeholder="First Name">
-                <input type="text" id="lastName" name="lastName" placeholder="Last Name">
+                <input type="text" id="firstName" name="firstName" placeholder="First Name" required>
+                <input type="text" id="lastName" name="lastName" placeholder="Last Name" required>
             </div>
+            
             <div class="select-option">
                 <label>Select One:</label><br>
-                <input type="radio" id="checkIn" name="check" value="checkIn">
+                <input type="radio" id="checkIn" name="check" value="checkIn" required>
                 <label for="checkIn">Check-In</label>
-                <input type="radio" id="checkOut" name="check" value="checkOut">
+                <input type="radio" id="checkOut" name="check" value="checkOut" required>
                 <label for="checkOut">Check-Out</label>
             </div>
+            
             <label for="registrationNumber">Registration Number:</label>
             <input type="text" id="registrationNumber" name="registrationNumber" required><br><br>
+            
             <label for="unitCode">Unit Code</label>
             <select id="unitCode" name="unitCode" required>
                 <option value="" disabled selected>Select Unit Code</option>
@@ -48,6 +58,7 @@
                 <option value="DIIT 0283">DIIT 0283</option>
                 <option value="COSC 0261">COSC 0261</option>
             </select><br><br>
+
             <label for="unitTitle">Unit Title</label>
             <select id="unitTitle" name="unitTitle" required>
                 <option value="" disabled selected>Select Unit Title</option>
@@ -60,35 +71,14 @@
                 <option value="ICT Project II">ICT Project II</option>
                 <option value="E-Commerce">E-Commerce</option>
             </select><br><br>
+            
             <label for="date">Date</label>
-<input type="date" id="date" name="date" required><br><br>
+            <input type="date" id="date" name="date" required><br><br>
 
-<label for="time">Time (Hour and Minutes)</label>
-<input type="time" id="time" name="time" required><br><br>
+            <label for="time">Time (Hour and Minutes)</label>
+            <input type="time" id="time" name="time" required><br><br>
 
-<button type="submit" class="submit-button">Submit</button>
-
-<script>
-// Set date and time fields to current date and time
-window.addEventListener('load', () => {
-    const dateField = document.getElementById('date');
-    const timeField = document.getElementById('time');
-    
-    // Get current date and time
-    const now = new Date();
-    
-    // Format date as YYYY-MM-DD
-    const year = now.getFullYear();
-    const month = String(now.getMonth() + 1).padStart(2, '0');
-    const day = String(now.getDate()).padStart(2, '0');
-    dateField.value = `${year}-${month}-${day}`;
-    
-    // Format time as HH:MM
-    const hours = String(now.getHours()).padStart(2, '0');
-    const minutes = String(now.getMinutes()).padStart(2, '0');
-    timeField.value = `${hours}:${minutes}`;
-});
-</script>
+            <button type="submit" class="submit-button">Submit</button>
         </form>
     </div>
 
@@ -104,20 +94,60 @@ window.addEventListener('load', () => {
         </div>
     </div>
 </div>
-
 <script>
     let slideIndex = 0;
     showSlides();
+
     function showSlides() {
         let slides = document.getElementsByClassName("mySlides");
-        for (let i = 0; i < slides.length; i++) {
-            slides[i].style.display = "none";
+        // Check if the slides array is empty
+        if (slides.length === 0) {
+            console.error("No slides found!");
+            return;
         }
+        
+        for (let i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none"; // Hide all slides
+        }
+
         slideIndex++;
-        if (slideIndex > slides.length) { slideIndex = 1 }
-        slides[slideIndex - 1].style.display = "block";
+        if (slideIndex > slides.length) { slideIndex = 1 } // Reset to the first slide
+        slides[slideIndex - 1].style.display = "block"; // Show the current slide
         setTimeout(showSlides, 3000); // Change image every 3 seconds
     }
+</script>
+
+<script>
+    // Set date and time fields to current date and time
+    window.addEventListener('load', () => {
+        const dateField = document.getElementById('date');
+        const timeField = document.getElementById('time');
+        
+        // Get current date and time
+        const now = new Date();
+        
+        // Format date as YYYY-MM-DD
+        const year = now.getFullYear();
+        const month = String(now.getMonth() + 1).padStart(2, '0');
+        const day = String(now.getDate()).padStart(2, '0');
+        dateField.value = `${year}-${month}-${day}`;
+        
+        // Format time as HH:MM
+        const hours = String(now.getHours()).padStart(2, '0');
+        const minutes = String(now.getMinutes()).padStart(2, '0');
+        timeField.value = `${hours}:${minutes}`;
+    });
+
+    // Add a check for the question answer before submitting the form
+    document.getElementById('attendanceForm').addEventListener('submit', function(event) {
+        const correctAnswer = "42"; // Replace with the correct answer to the teacher's question
+        const userAnswer = document.getElementById('securityQuestion').value.trim();
+
+        if (userAnswer !== correctAnswer) {
+            alert("Incorrect answer! You cannot sign the attendance.");
+            event.preventDefault(); // Prevent form submission
+        }
+    });
 </script>
 
 </body>

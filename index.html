@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Online Class Attendance System</title>
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+  <!-- Header Section -->
+  <header>
+    <h1>Welcome to the Online Class Attendance System</h1>
+    <p>Your one-stop solution for managing attendance easily and efficiently.</p>
+  </header>
+
+  <!-- Main Section -->
+  <main>
+    <div class="content-container">
+      <!-- Left Section with Call to Action Buttons -->
+      <div class="left-section">
+        <div class="cta-buttons">
+          <a href="login.html" class="button">Login</a>
+          <a href="add_user.html" class="button">Register</a>
+        </div>
+
+        <!-- Features Section -->
+        <section id="features">
+          <h2>Features</h2>
+          <ul>
+            <li>Easy Attendance Tracking</li>
+            <li>Secure Login System</li>
+            <li>Quick User Registration</li>
+            <li>Comprehensive Reports and Analytics</li>
+          </ul>
+        </section>
+      </div>
+
+      <!-- Right Section with Slideshow -->
+      <div class="slideshow-container">
+        <!-- Slide 1 -->
+        <div class="slide fade">
+          <img src="login.jpg" alt="Slide 1" style="width:100%">
+        </div>
+
+        <!-- Slide 2 -->
+        <div class="slide fade">
+          <img src="image2.jpeg" alt="Slide 2" style="width:100%">
+        </div>
+
+        <!-- Slide 3 -->
+        <div class="slide fade">
+          <img src="image.jpeg" alt="Slide 3" style="width:100%">
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer Section -->
+  <footer>
+    <p>Contact us at support@universityattendance.com | Follow us on social media</p>
+  </footer>
+
+  <!-- JavaScript for Slideshow -->
+  <script>
+    let slideIndex = 0;
+    showSlides();
+
+    function showSlides() {
+      let slides = document.getElementsByClassName("slide");
+      
+      // Hide all slides
+      for (let i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+      }
+      
+      // Increase index to show next slide
+      slideIndex++;
+      
+      // Reset to the first slide if we reach the end
+      if (slideIndex > slides.length) {
+        slideIndex = 1;
+      }
+      
+      // Display the current slide
+      slides[slideIndex - 1].style.display = "block";
+      
+      // Change slide every 5 seconds
+      setTimeout(showSlides, 5000);
+    }
+  </script>
+</body>
+</html>
